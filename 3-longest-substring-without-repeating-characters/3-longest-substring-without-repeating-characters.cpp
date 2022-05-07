@@ -26,8 +26,14 @@ public:
                 }
                 j++;
             }
-            if(ans<mp.size())
+            
+            int n=mp.size();
+            if(ans<n){
+                // cout<<"Ans is "<<ans<<endl;
+                // cout<<"mp is "<<mp.size()<<endl;
                 ans=mp.size();
+                
+            }
             
         }
         return ans;
