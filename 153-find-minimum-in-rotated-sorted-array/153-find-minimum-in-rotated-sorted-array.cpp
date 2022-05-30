@@ -14,7 +14,7 @@ public:
            return (helper(nums,s,mid-1));
         else
             return (helper(nums,mid+1,e));
-        return -1;
+      
         
     }
     int findMin(vector<int>& nums) {
