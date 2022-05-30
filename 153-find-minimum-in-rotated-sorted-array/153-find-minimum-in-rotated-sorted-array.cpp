@@ -5,7 +5,7 @@ public:
         if(s>e)
             return -1;
         int mid = (s+e)/2;
-        cout<<mid<<endl;
+        //cout<<mid<<endl;
         if(mid<e && nums[mid]>nums[mid+1])
             return mid+1;
         if(mid>s && nums[mid]<nums[mid-1])
