@@ -7,8 +7,7 @@ public:
             return true;
         
          state[t]=2;
-        // if(mp.find(t)!=mp.end())
-        // {
+        
            for(int i=0;i<mp[t].size();i++)
         {
             if(state[mp[t][i]]!=1)
@@ -17,7 +16,7 @@ public:
                     return true;
             }
         } 
-        // }
+        
         
         state[t]=1;
         return false;
