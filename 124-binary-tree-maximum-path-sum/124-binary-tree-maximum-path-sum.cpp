@@ -27,9 +27,9 @@ public:
         int totalSumLeft=totalSum(root->left); //6
         int totalSumRight=totalSum(root->right);//-1
         int sum=root->val;
-        if(totalSumLeft>=0)
+         if(totalSumLeft>=0)
             sum+=totalSumLeft;
-        if(totalSumRight>=0)
+         if(totalSumRight>=0)
             sum+=totalSumRight;
         int leftTree= maxPathSum(root->left);
         int rightTree= maxPathSum(root->right);
