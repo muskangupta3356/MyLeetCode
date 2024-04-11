@@ -18,8 +18,9 @@ class Solution {
            else
            {
                row.add(1);
-               List<Integer> temp = new ArrayList<Integer>();
-               temp = pTriangle.get(i-2);
+               // List<Integer> temp = new ArrayList<Integer>();
+               // temp = pTriangle.get(i-2);
+               List<Integer> temp = pTriangle.get(i-2);
                for(int j=0;j<temp.size()-1;j++)
                {
                    int sum=temp.get(j)+temp.get(j+1);
