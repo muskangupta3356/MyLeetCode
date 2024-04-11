@@ -1,31 +1,48 @@
 class Solution {
     public void setZeroes(int[][] matrix) {
-        int row = matrix.length;
-        int col = matrix[0].length;
-        int[] rtrack = new int[row];
-        int[] ctrack = new int[col];
-        for(int i=0;i<row;i++)
+       int colZero= -1;
+        
+        for(int i=0;i<matrix.length;i++)
         {
-            for(int j=0;j<col;j++)
+            for(int j=0;j<matrix[i].length;j++)
             {
                 if(matrix[i][j]==0)
                 {
-                    rtrack[i]=1;
-                    ctrack[j]=1;
+                    if(i==0)
+                        matrix[0][0]=0;
+                    if(j==0)
+                        colZero=0;
+                    else{
+                        matrix[0][j]=0;
+                        matrix[i][0]=0;
+                    }
+                        
+                    
+                    
                 }
             }
         }
-        
-        for(int i=0;i<row;i++)
+        for(int i=1;i<matrix.length;i++)
         {
-            for(int j=0;j<col;j++)
+            for(int j=1;j<matrix[i].length;j++)
             {
-                if(rtrack[i]==1 || ctrack[j]==1)
+                if(matrix[0][j]==0 || matrix[i][0]==0)
                     matrix[i][j]=0;
+            }
+        }
+        if(matrix[0][0]==0)
+            for(int j=0;j<matrix[0].length;j++)
+            {
+                matrix[0][j]=0;
+            }
+        if(colZero==0)
+        {
+            for(int i=0;i<matrix.length;i++)
+            {
+                matrix[i][0]=0;
             }
         }
         
         return;
-        
     }
 }
