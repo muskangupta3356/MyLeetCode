@@ -1,39 +1,45 @@
 class Solution {
     public int mostBooked(int n, int[][] meetings) {
-        int[] ans = new int[n];
-        long[] times = new long[n];
-        Arrays.sort(meetings, (a, b) -> Integer.compare(a[0], b[0]));
-
-        for (int i = 0; i < meetings.length; i++) {
-            int start = meetings[i][0], end = meetings[i][1];
-            boolean flag = false;
-            int minind = -1;
-            long val = Long.MAX_VALUE;
-            for (int j = 0; j < n; j++) {
-                if (times[j] < val) {
-                    val = times[j];
-                    minind = j;
-                }
-                if (times[j] <= start) {
-                    flag = true;
-                    ans[j]++;
-                    times[j] = end;
+        long[] roomAvailabilityTime = new long [n];
+        int[] meetingCount = new int[n];
+        Arrays.sort(meetings, (a,b)-> a[0] - b[0]);
+        for(int [] meeting : meetings)
+        {
+            int startTime = meeting[0];
+            int endTime = meeting[1];
+            boolean foundUnusedRoom = false;
+            int minAvaialableTimeRoom = 0;
+            long minRoomAvailabilityTime = Long.MAX_VALUE;
+            for(int i=0;i<n;i++)
+            {
+                if(roomAvailabilityTime[i]<=startTime)
+                {
+                    meetingCount[i]++;
+                    roomAvailabilityTime[i]=endTime;
+                    foundUnusedRoom = true;
                     break;
                 }
+                if(minRoomAvailabilityTime>roomAvailabilityTime[i])
+                {
+                    minRoomAvailabilityTime = roomAvailabilityTime[i];
+                    minAvaialableTimeRoom = i;
+                }
             }
-            if (!flag) {
-                ans[minind]++;
-                times[minind] += (end - start);
-            }
-        }
-
-        int maxi = -1, id = -1;
-        for (int i = 0; i < n; i++) {
-            if (ans[i] > maxi) {
-                maxi = ans[i];
-                id = i;
+            if(foundUnusedRoom == false)
+            {
+                roomAvailabilityTime[minAvaialableTimeRoom]+=endTime - startTime;
+                meetingCount[minAvaialableTimeRoom]++;
             }
         }
-        return id;
+        int maxMeetingCount = 0 ,maxMeetingCountRoom = 0;
+        for(int i=0;i<n;i++)
+        {
+            if(meetingCount[i]>maxMeetingCount)
+            {
+                maxMeetingCount = meetingCount[i];
+                maxMeetingCountRoom = i;
+            }
+        }
+        return maxMeetingCountRoom;
     }
 }
