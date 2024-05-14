@@ -60,3 +60,5 @@ class Solution {
         return minimum_area != Integer.MAX_VALUE ? minimum_area : 0; // Return 0 if no rectangle exists
     }
 }
+
+//https://leetcode.com/problems/minimum-area-rectangle/discuss/900264/IntuitiveWith-PicturesC%2B%2BJavaExplanation
