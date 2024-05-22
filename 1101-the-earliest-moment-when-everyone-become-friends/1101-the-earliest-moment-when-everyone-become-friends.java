@@ -46,7 +46,7 @@ class DisjointSet{
         }else if(rank.get(ulp_u) > rank.get(ulp_v)){
             parent.set(ulp_v, ulp_u);
         }else{
-            parent.set(ulp_u, ulp_v);
+            parent.set(ulp_v, ulp_u);
             int rankU = rank.get(ulp_u);
             rank.set(ulp_u, rankU + 1);
         }
