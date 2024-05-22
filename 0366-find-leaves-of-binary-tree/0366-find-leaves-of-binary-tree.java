@@ -25,13 +25,12 @@ class Solution {
             return 0;
         int leftHeight = height(root.left,answer);
         int rightHeight = height(root.right,answer);
-       // if(root.left == null && root.right == null){
             int index = Math.max(leftHeight,rightHeight);
             if(answer.size()<= index){
                 answer.add(new ArrayList<>());                
             }
             answer.get(index).add(root.val);
-       // }
+
         return 1+Math.max(leftHeight,rightHeight);
     }
 }
