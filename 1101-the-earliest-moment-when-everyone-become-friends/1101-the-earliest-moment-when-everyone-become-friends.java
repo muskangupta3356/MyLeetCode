@@ -1,6 +1,11 @@
 class Solution {
     public int earliestAcq(int[][] logs, int n) {
-        Arrays.sort(logs, (a, b) -> Integer.compare(a[0], b[0]));
+        //Arrays.sort(logs, (a, b) -> Integer.compare(a[0], b[0]));
+        Arrays.sort(logs, new Comparator<int[]>(){
+            public int compare (int[] a, int[] b){
+                return a[0] - b[0];
+            }
+        });
         DisjointSet ds = new DisjointSet(n);
         int answer = -1; int count = n;
         for(int[] log :logs){
