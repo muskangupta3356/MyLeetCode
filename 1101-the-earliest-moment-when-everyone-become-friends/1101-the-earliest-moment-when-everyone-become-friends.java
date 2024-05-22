@@ -7,7 +7,7 @@ class Solution {
             }
         });
         DisjointSet ds = new DisjointSet(n);
-        int answer = -1; int count = n;
+        int answer = -1; 
         for(int[] log :logs){
             if(ds.findUPar(log[1]) != ds.findUPar(log[2])){
                 ds.unionByRank(log[1],log[2]);
