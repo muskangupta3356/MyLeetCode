@@ -28,9 +28,9 @@ class Solution {
             else if(p.val>root.val)
                 root = root.right;
         }
-          if(root.right==null) 
+          
             return pre;
-       return null;
+      
     }
     
     TreeNode helper1(TreeNode node){
