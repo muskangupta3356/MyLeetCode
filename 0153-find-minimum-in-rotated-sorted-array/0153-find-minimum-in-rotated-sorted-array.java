@@ -10,7 +10,7 @@ class Solution {
             if(nums[start] <= nums[end])
                 return nums[start];
             if(nums[mid] >= nums[start]){
-                if(mid < n)
+                if(mid < n-1)
                     start = mid + 1;
                 else
                     return nums[start];
