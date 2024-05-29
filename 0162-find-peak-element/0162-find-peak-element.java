@@ -7,7 +7,7 @@ class Solution {
         int end = n-1;
         while(start<=end){
             int mid = (start+end)/2;
-if((mid>0 && mid < n-1 && nums[mid]>nums[mid-1] && nums[mid]>nums[mid+1])|| (mid == n-1 && nums[mid]>nums[mid-1]) || (mid == 0 && nums[mid]> nums[mid+1]))
+if((mid>start && mid < end && nums[mid]>nums[mid-1] && nums[mid]>nums[mid+1])||(mid == start && mid == end)|| (mid == end && nums[mid]>nums[mid-1]) || (mid == start && nums[mid]> nums[mid+1]))
                 return mid;
             else if(nums[mid]<nums[mid+1])
                 start = mid + 1;
