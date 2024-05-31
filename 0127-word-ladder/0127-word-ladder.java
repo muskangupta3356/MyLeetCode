@@ -29,7 +29,7 @@ class Solution {
                         if (nextWord.equals(target)) { 
                             return d + 1;
                         }
-                        if (wordList.contains(nextWord) && !visited.contains(nextWord)) {
+                        if (wordList.contains(nextWord) && !visited.contains(nextWord) ) {
                             Path t = new Path(nextWord, d + 1);
                             q.add(t);
                             visited.add(nextWord);
