@@ -8,7 +8,7 @@ class Solution {
                          return a[0]-b[0];
                      }  
                    });
-        PriorityQueue<Integer> allocator =  new PriorityQueue<Integer>(intervals.length,new Comparator<Integer>(){
+        PriorityQueue<Integer> allocator =  new PriorityQueue<>(new Comparator<Integer>(){
             public int compare(Integer a, Integer b){
                 return a-b;
             }
