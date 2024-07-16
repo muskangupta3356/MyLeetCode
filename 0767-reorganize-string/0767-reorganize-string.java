@@ -6,7 +6,12 @@ class Solution {
         }
 
         // Max heap ordered by character counts
-        var pq = new PriorityQueue<int[]>((a, b) -> Integer.compare(b[1], a[1]));
+       PriorityQueue<int[]> pq = new PriorityQueue<>(new Comparator<int[]>() {
+    @Override
+    public int compare(int[] a, int[] b) {
+        return Integer.compare(b[1], a[1]);
+    }
+});
         for (int i = 0; i < 26; i++) {
             if (charCounts[i] > 0) {
                 pq.offer(new int[] {i + 'a', charCounts[i]});
