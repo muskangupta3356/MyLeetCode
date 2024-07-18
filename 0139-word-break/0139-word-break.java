@@ -1,39 +1,24 @@
 class Solution {
-    private String s;
-    private List<String> wordDict;
-    private int[] memo;
-
-    private boolean dp(int i) {
-        if (i < 0) return true;
-
-        if (memo[i] != -1) {
-            return memo[i] == 1;
-        }
-
-        for (String word : wordDict) {
-            // Handle out of bounds case
-            if (i - word.length() + 1 < 0) {
-                continue;
-            }
-
-            if (
-                s.substring(i - word.length() + 1, i + 1).equals(word) &&
-                dp(i - word.length())
-            ) {
-                memo[i] = 1;
-                return true;
-            }
-        }
-
-        memo[i] = 0;
-        return false;
-    }
-
     public boolean wordBreak(String s, List<String> wordDict) {
-        this.s = s;
-        this.wordDict = wordDict;
-        this.memo = new int[s.length()];
-        Arrays.fill(this.memo, -1);
-        return dp(s.length() - 1);
+        Set<String> wordsFind = new HashSet<>(wordDict);
+        int[] memo = new int[s.length()];
+        Arrays.fill(memo, -1);
+        return helper(s,wordsFind,memo,0,s.length());
+    }
+    
+    public boolean helper(String s, Set<String> wordsFind,int[]memo,int index, int len){
+        if(index==len)
+            return true;
+        
+        if(memo[index]!=-1)
+            return memo[index] ==1;
+        for(int i = index +1; i <=len;i++){
+        if(wordsFind.contains(s.substring(index,i)) && helper(s,wordsFind,memo,i,len)){
+            memo[index]=1;
+            return true;
+        }
+    }
+        memo[index]=0;
+        return false;
     }
 }
