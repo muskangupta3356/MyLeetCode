@@ -41,40 +41,6 @@ class Solution {
                 second = second.next;
         }
        
-//          if(first != null){
-//             while(first != null){
-//                 ListNode node = new ListNode();
-//             if(head == null && tail == null){
-//                 head = tail = node;
-//             }else{
-//                 tail.next = node;
-//                 tail = node;
-//             }
-//             add = first.val + carryover;
-//             value = add % 10 ;
-//             carryover = add/10;
-//             node.val = value;
-//             first = first.next;
-
-//             }
-//         }else{
-//              while(second != null){
-//                 ListNode node = new ListNode();
-//             if(head == null && tail == null){
-//                 head = tail = node;
-//             }else{
-//                 tail.next = node;
-//                 tail = node;
-//             }
-//             add = second.val + carryover;
-//             value = add % 10;
-//             carryover = add/10;
-//             node.val = value;
-//             second = second.next;
-            
-//         }
-        
-//     }
         while(carryover != 0){
             ListNode node = new ListNode();
              if(head == null && tail == null){
