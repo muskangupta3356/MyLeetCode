@@ -17,7 +17,7 @@ class Solution {
         if(second == null)
             return first;
         int carryover = 0; int value = 0; int add = 0; ListNode head = null;ListNode tail = null;
-        while(first != null || second != null){
+        while(first != null || second != null || carryover != 0){
             ListNode node = new ListNode();
             if(head == null && tail == null){
                 head = tail = node;
@@ -28,30 +28,29 @@ class Solution {
             add = carryover;
             if(first != null){
                 add = add + first.val;
+                first = first.next;
             }
             if(second != null){
                 add = add + second.val;
+                second = second.next;
             }
             value = add % 10;
             carryover = add/10;
             node.val = value;
-            if(first != null)
-                first = first.next;
-            if(second != null)
-                second = second.next;
+                
         }
        
-        while(carryover != 0){
-            ListNode node = new ListNode();
-             if(head == null && tail == null){
-                head = tail = node;
-            }else{
-                tail.next = node;
-                tail = node;
-            }
-            node.val = carryover%10;
-            carryover = carryover /10;
-        }
+        // while(carryover != 0){
+        //     ListNode node = new ListNode();
+        //      if(head == null && tail == null){
+        //         head = tail = node;
+        //     }else{
+        //         tail.next = node;
+        //         tail = node;
+        //     }
+        //     node.val = carryover%10;
+        //     carryover = carryover /10;
+        // }
         return head;
 }
 }
